@@ -1,4 +1,4 @@
-import React from "react";
+
 import css from "./header.module.scss";
 import logo from "../../../assets/pokemon.png";
 

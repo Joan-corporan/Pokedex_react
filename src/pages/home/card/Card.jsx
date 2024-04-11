@@ -33,7 +33,7 @@ export const Card = ({ card }) => {
     async  function getPokemonImagen (id)  {
         const response = await axios.get(`${URL_POKEMON}/${id}`);
         return response?.data?.sprites?.other["official-artwork"]?.font_default;
-      };
+      }
 
       if (especiePokemon?.url_especie) {
 
@@ -41,7 +41,7 @@ export const Card = ({ card }) => {
           const arrayEvoluciones = [];
           const URL = especiePokemon?.url_especie?.url.split("/");
           const api = await axios.get(`${URL_POKEMON_EVOLUTION}/${URL[6]}`);
-          console.log(api)
+          /* console.log(api) */
          /* const img1 = await getPokemonImagen() */
           
         }; 

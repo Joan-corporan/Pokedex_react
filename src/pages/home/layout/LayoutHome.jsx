@@ -4,46 +4,45 @@ import { Header } from "../header/Header";
 import { URL_POKEMON } from "../../../api/apiRest";
 import axios from "axios";
 import { Card } from "../card/Card";
-
 import { Loading } from "../../../components/Loading";
 export const LayoutHome = () => {
   const [carga, setCarga] = useState(true);
   const [arrayPokemon, setPokemon] = useState([]);
   const [temaPokemon, setTema] = useState("");
 
-  
+  const colores = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF3','#b11212','#ffef12','#876006','#f7f6f5','#000000','#900fdb','#c9c7ca'];
    const green = () => {
-     setTema("green");
+     setTema(colores[1]);
    };
    const blue = () => {
-     setTema("blue");
+     setTema(colores[2]);
    };
    const red = () => {
-     setTema("red");
+     setTema(colores[5]);
    };
    const yellow = () => {
-     setTema("yellow");
+     setTema(colores[6]);
    };
    const pink = () => {
-     setTema("pink");
+     setTema(colores[3]);
    };
    const brown = () => {
-     setTema("brown");
+     setTema(colores[7]);
    };
    const white = () => {
-     setTema("white");
+     setTema(colores[8]);
    };
    const black = () => {
-     setTema("black");
+     setTema(colores[9]);
    };
    const all = () => {
-     setTema("all");
+     setTema(colores[4]);
    };
    const purple = () => {
-     setTema("purple");
+     setTema(colores[10]);
    };
    const gray = () => {
-     setTema("gray");
+     setTema(colores[11]);
    };
    //Traer los pokemones de la API
    try {
@@ -65,23 +64,33 @@ export const LayoutHome = () => {
   
   return (
     <>
-    <div className={`${css.layout} bg-${temaPokemon}`}>
+    <div className={`${css.layout} ` }style={{ backgroundColor: temaPokemon }}>
 
       {carga ? 
         <Loading />
          : <>
       <Header />
       {<section>
-        <div className="dropdown">
+        <div className="dropdown" style={{
+          width: "35%", display:"inline-block", marginLeft: "2%"
+        }}>
           <button
             className="btn btn-secondary dropdown-toggle"
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
+            style={{
+              fontSize: "25px",
+              marginBottom:"3%",
+              fontWeight: "bold",
+            }}
           >
-            Tema
+            Cambiar color de tema
           </button>
-          <ul className="dropdown-menu">
+          <ul className="dropdown-menu" style={{
+          width: "50%",  textAlign: "center",
+          fontSize:"20px"
+        }}>
             <li>
               <button onClick={() => green()} className="dropdown-item">
                 Green
